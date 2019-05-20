@@ -9,6 +9,10 @@
 	<artifactId>xxl-job-admin</artifactId>
 	<packaging>jar</packaging>
 
+	<properties>
+		<oracle.version>14</oracle.version>
+	</properties>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -86,6 +90,13 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-connector-java.version}</version>
+		</dependency>
+
+		<!--oracle-->
+		<dependency>
+			<groupId>oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>${oracle.version}</version>
 		</dependency>
 
 		<!-- commons-collections4 -->

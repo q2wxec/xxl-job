@@ -1,3 +1,6 @@
+为了使调度中心和执行器端日志实现关联，通过对自定义。**com.xxl.job.core.thread.JobThread **调用**JobHandler**的入参进行二次封装带入调度中心日志ID
+
+```java
 package com.xxl.job.core.thread;
 
 import com.xxl.job.core.biz.model.HandleCallbackParam;
@@ -151,6 +154,7 @@ public class JobThread extends Thread{
 						}
 					} else {
 						// just execute
+                        //FXXNOTE:将执行参数封装并带入调度中心日志记录id
 						executeResult = handler.execute("{\"logID\":\""+triggerParam.getLogId()+"\","+"\"params\":\""+triggerParam.getExecutorParams()+"\"}");
 					}
 
@@ -210,3 +214,6 @@ public class JobThread extends Thread{
 		logger.info(">>>>>>>>>>> xxl-job JobThread stoped, hashCode:{}", Thread.currentThread());
 	}
 }
+
+```
+
